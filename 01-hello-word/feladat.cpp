@@ -1,6 +1,7 @@
 #include <iostream>
 
-void hellomars(){
+void hellomars()
+{
     std::cout << "Hello Mars!" << std::endl;
 }
 
