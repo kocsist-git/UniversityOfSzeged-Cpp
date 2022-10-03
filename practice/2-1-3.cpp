@@ -1,8 +1,6 @@
-/* Készíts egy Mobiltelefon osztályt.
-A Mobiltelefonba be lehessen rakni egy SIM kártyát.
-Milyen kapcsolat van a mobiltelefon és a kártya között?
-Ki lehessen cserélni a kártyát.
-Ki lehessen venni a kártyát. */
+/* Legyen egy függvény, amelyik kicseréli a telefonban a kártyát.
+A paraméterek legyenek érték szerint átadva. Nézzük meg, hogy a
+hívás helyén valóban kicserélődött-e a telefonban a kártya. */
 
 #include <iostream>
 
@@ -43,13 +41,22 @@ public:
     }
 };
 
+void shift_sim(Mobiltelefon telefon, SIMKartya newsim)
+{
+    telefon.add_sim(&newsim);
+    cout << "A kártya száma: (shift_sim)" << telefon.get_number() << endl;
+}
+
 int main(int argc, char const *argv[])
 {
     SIMKartya sim1("06-70/358-75-85");
+    SIMKartya sim2("06-30/111-23-92");
     Mobiltelefon telefon1;
 
     telefon1.add_sim(&sim1);
+    cout << "A kártya száma: " << telefon1.get_number() << endl;
 
+    shift_sim(telefon1, sim2);
     cout << "A kártya száma: " << telefon1.get_number() << endl;
 
     return 0;
