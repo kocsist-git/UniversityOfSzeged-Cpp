@@ -15,7 +15,86 @@ int count_mM()
   string input;
   cin >> input;
 
-  return 0;
+  for (size_t i = 0; i < input.length(); i++)
+  {
+    if (input[i] == 'm' || input[i] == 'M')
+    {
+      sum++;
+    }
+  }
+
+  return sum;
+}
+
+string repeater()
+{
+  int number = 0;
+  string result;
+  string inputString;
+  cin >> number;
+  cin >> inputString;
+
+  if (number < 0)
+    return "hiba";
+
+  for (int i = 0; i < number; i++)
+  {
+    result += inputString;
+  }
+
+  return result;
+}
+
+string multiplier(int numer)
+{
+  return to_string(numer * 3);
+}
+
+int strmin(string s1, string s2)
+{
+  int str1 = 0;
+  int str2 = 0;
+  int str1Rossz = 0;
+  int str2Rossz = 0;
+  try
+  {
+    str1 = stoi(s1);
+  }
+  catch (const invalid_argument& e)
+  {
+    str1Rossz = 1;
+  }
+
+  try
+  {
+    str2 = stoi(s2);
+  }
+  catch (const invalid_argument& e)
+  {
+    str2Rossz = 1;
+  }
+
+  if (str1Rossz > str2Rossz)
+  {
+    return str2;
+  }
+  else if (str1Rossz < str2Rossz)
+  {
+    return str1;
+  }
+  else if (str1Rossz + str2Rossz == 2)
+  {
+    return -999;
+  }
+
+  if (str1 > str2)
+  {
+    return str2;
+  }
+  else
+  {
+    return str1;
+  }
 }
 
 //=== Teszteles bekapcsolasa kikommentezessel
